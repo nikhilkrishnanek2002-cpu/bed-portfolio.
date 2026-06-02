@@ -19,25 +19,32 @@
       "preliminary_exam_pdf": "pdfs/203-exam.pdf"
     },
     {
-      "code": "204"
+      "code": "204",
+      "practical_pdf": "pdfs/204.pdf"
     },
     {
-      "code": "205"
+      "code": "205",
+      "practical_pdf": "pdfs/205.pdf"
     },
     {
-      "code": "206A"
+      "code": "206A",
+      "practical_pdf": "pdfs/206a.pdf"
     },
     {
-      "code": "206B"
+      "code": "206B",
+      "practical_pdf": "pdfs/206b.pdf"
     },
     {
-      "code": "207"
+      "code": "207",
+      "practical_pdf": "pdfs/207.pdf"
     },
     {
-      "code": "208A"
+      "code": "208A",
+      "practical_pdf": "pdfs/208a.pdf"
     },
     {
-      "code": "208B"
+      "code": "208B",
+      "practical_pdf": "pdfs/208b.pdf"
     }
   ]
 }
