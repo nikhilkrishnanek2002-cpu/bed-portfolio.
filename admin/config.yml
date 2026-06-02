@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update
+
+media_folder: "pdfs" # Folder where uploaded files will be saved
+public_folder: "pdfs"
+
+collections:
+  - name: "subjects_data"
+    label: "Subjects Data"
+    files:
+      - file: "data/subjects.json"
+        name: "subjects"
+        label: "Subject PDFs Configuration"
+        fields:
+          - name: "subjects"
+            label: "Subjects List"
+            widget: "list"
+            fields:
+              - name: "code"
+                label: "Subject Code (e.g. 201, 206A)"
+                widget: "string"
+              - name: "practical_pdf"
+                label: "Practical PDF"
+                widget: "file"
+                required: false
+              - name: "mcq_pdf"
+                label: "MCQ PDF"
+                widget: "file"
+                required: false
+              - name: "preliminary_exam_pdf"
+                label: "Preliminary Exam PDF"
+                widget: "file"
+                required: false

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B.Ed Portfolio â€“ Shruthi Ranjith Nair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #FFF8EE;
+    --bg-alt:     #F6E8D4;
+    --surface:    #FFFFFF;
+    --nav-bg:     #5A0F1B;
+    --nav-text:   #F3D7C3;
+    --nav-active: #FFFFFF;
+    --heading:    #4A0B16;
+    --body:       #4A2D25;
+    --muted:      #826255;
+    --light:      #B78574;
+    --line:       #E7CBB8;
+    --accent:     #7D1827;
+    --accent-soft:#F3D7C3;
+    --cream:      #FFFDF8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14.5px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* â”€â”€ NAV â”€â”€ */
+  nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 52px;
+  }
+  .nav-brand {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--nav-active);
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nav-text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--nav-active);
+  }
+
+  /* â”€â”€ PAGE WRAPPER â”€â”€ */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* â”€â”€ SECTION â”€â”€ */
+  .section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+  }
+
+  /* â”€â”€ LABEL â”€â”€ */
+  .label {
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--light);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .rule {
+    width: 28px;
+    height: 1.5px;
+    background: var(--light);
+    margin-bottom: 1.5rem;
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+    margin: 2.5rem 0;
+  }
+
+  /* â”€â”€ HEADINGS â”€â”€ */
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--heading);
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 0.8rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 0.4rem;
+  }
+  p { margin-bottom: 0.8rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â• HOME â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .hero {
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-meta {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .hero-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.8rem;
+    line-height: 1.8;
+  }
+  .hero-photo {
+    width: 150px;
+    height: 190px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: grayscale(15%);
+  }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .home-block h3 { margin-bottom: 0.6rem; }
+  .home-block p { font-size: 0.88rem; color: var(--body); }
+
+  .quote {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.85;
+    max-width: 580px;
+    border-left: 2px solid var(--line);
+    padding-left: 1.2rem;
+  }
+  .quote-attr {
+    font-size: 0.72rem;
+    color: var(--light);
+    margin-top: 0.8rem;
+    font-style: normal;
+    letter-spacing: 0.04em;
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â• PAGE HEADER â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .page-header {
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+    padding: 3.5rem 2rem 3rem;
+  }
+  .page-header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .page-header p { color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; margin-bottom: 0; }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table td {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88rem;
+    vertical-align: top;
+  }
+  .info-table td:first-child {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    width: 110px;
+    padding-right: 1.2rem;
+    padding-top: 0.72rem;
+    font-weight: 600;
+  }
+  .goals-list { list-style: none; padding: 0; }
+  .goals-list li {
+    padding: 0.6rem 0 0.6rem 1rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88rem;
+    position: relative;
+  }
+  .goals-list li::before {
+    content: 'â€“';
+    position: absolute;
+    left: 0;
+    color: var(--light);
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â• SUBJECTS â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .subject-item {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  }
+  .subject-item:hover,
+  .subject-item:focus {
+    background: var(--cream);
+    border-color: var(--accent-soft);
+    box-shadow: 0 12px 28px rgba(90, 15, 27, 0.12);
+    outline: none;
+    transform: translateY(-2px);
+  }
+  .subject-code {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    padding-top: 2px;
+  }
+  .subject-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--heading);
+    line-height: 1.45;
+  }
+  .subject-arrow {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .subject-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 1.6rem;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .subject-back:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--nav-active);
+  }
+  .subject-sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .subject-section-card {
+    min-height: 150px;
+    padding: 1.2rem;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(90, 15, 27, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .subject-section-card .label {
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--nav-active);
+    text-decoration: none;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .section-link:hover {
+    background: var(--nav-bg);
+    transform: translateY(-1px);
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â• ACADEMICS â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .cert-item {
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .cert-stage {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+  .cert-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 0.15rem;
+  }
+  .cert-detail { font-size: 0.8rem; color: var(--muted); }
+  .cert-link {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 0.4rem 0.9rem;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .cert-link:hover {
+    background: var(--nav-bg);
+    color: var(--nav-active);
+    border-color: var(--nav-bg);
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â• ACTIVITIES â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .activity-block {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .activity-block:last-child { border-bottom: none; }
+  .activity-num {
+    font-size: 0.55rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--light);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .activity-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+  }
+  .activity-desc {
+    font-size: 0.86rem;
+    color: var(--body);
+    margin-bottom: 1rem;
+    max-width: 620px;
+    line-height: 1.8;
+  }
+  .photo-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .photo-grid img {
+    width: 180px;
+    height: 125px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(10%);
+  }
+
+  /* â”€â”€ FOOTER â”€â”€ */
+  footer {
+    background: var(--nav-bg);
+    text-align: center;
+    padding: 1.8rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero-photo { width: 120px; height: 150px; }
+    .home-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .subject-item { grid-template-columns: 50px 1fr auto; padding: 0.9rem; }
+    .subject-sections { grid-template-columns: 1fr; }
+    .cert-item { grid-template-columns: 1fr; }
+    .photo-grid img { width: 140px; height: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Shruthi R. Nair</span>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('subjects')" id="nav-subjects">Subjects</a></li>
+    <li><a onclick="showPage('academics')" id="nav-academics">Academics</a></li>
+  </ul>
+</nav>
+
+<!-- â•â•â•â•â•â•â•â•â•â• HOME â•â•â•â•â•â•â•â•â•â• -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-meta">Bachelor of Education Â· 2024â€“2026</p>
+        <h1>Shruthi<br>Ranjith Nair</h1>
+        <p class="hero-sub">
+          KK Wagh College of Education, Nashik<br>
+          Academic Year 2024â€“2026
+        </p>
+      </div>
+      <img src="https://precious-manatee-54030d.netlify.app/assets/profile_photo.jpeg" alt="Shruthi Ranjith Nair" class="hero-photo">
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="label">Introduction</span>
+    <span class="rule"></span>
+    <div class="home-grid">
+      <div class="home-block">
+        <h3>Brief Bio</h3>
+        <p>I am a dedicated B.Ed student teacher with a strong interest in teachingâ€“learning processes and holistic student development. I am committed to developing effective pedagogical skills, classroom management strategies, and subject knowledge to become a responsible and reflective educator.</p>
+      </div>
+      <div class="home-block">
+        <h3>Welcome Note</h3>
+        <p>This portfolio is a reflection of my academic journey, teaching experiences, skills, and professional growth as a student teacher. It showcases my learning, classroom practices, and reflections developed during my B.Ed programme.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="label">Teaching Philosophy</span>
+    <span class="rule"></span>
+    <p class="quote">"I believe that teaching is a learner-centred process that encourages curiosity, critical thinking, and active participation. Every learner is unique, and effective teaching should address diverse learning needs through inclusive practices, meaningful activities, and continuous assessment."</p>
+    <p class="quote-attr">â€” Shruthi Ranjith Nair</p>
+  </div>
+  <footer>Â© 2025 B.Ed Teaching Portfolio</footer>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â• -->
+<div id="page-about" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="label">Profile</span>
+      <h2>About Me</h2>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="label">Details</span>
+    <span class="rule"></span>
+    <table class="info-table">
+      <tr><td>Name</td><td>Shruthi Ranjith Nair</td></tr>
+      <tr><td>Course</td><td>Bachelor of Education (B.Ed)</td></tr>
+      <tr><td>Year</td><td>First Year (F.Y.)</td></tr>
+      <tr><td>College</td><td>KK Wagh College of Education, Nashik</td></tr>
+      <tr><td>Phone</td><td>9947657019</td></tr>
+      <tr><td>Email</td><td>shruthivasudevan09@gmail.com</td></tr>
+    </table>
+
+    <div class="divider"></div>
+
+    <span class="label">Vision</span>
+    <span class="rule"></span>
+    <p class="quote">My vision is to become a competent, ethical, and innovative teacher who inspires students to become lifelong learners, responsible citizens, and confident individuals capable of contributing positively to society.</p>
+
+    <div class="divider"></div>
+
+    <span class="label">Professional Goals</span>
+    <span class="rule"></span>
+    <ul class="goals-list">
+      <li>Develop strong subject mastery and effective teaching skills.</li>
+      <li>Adopt innovative and student-friendly teaching methods.</li>
+      <li>Create an inclusive and supportive classroom environment.</li>
+      <li>Continuously enhance professional competence through reflection and learning.</li>
+      <li>Contribute positively to the educational institution and society.</li>
+    </ul>
+  </div>
+  <footer>Â© 2025 B.Ed Teaching Portfolio</footer>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â• SUBJECTS â•â•â•â•â•â•â•â•â•â• -->
+<div id="page-subjects" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="label">Curriculum</span>
+      <h2>Subjects</h2>
+      <p>Semester II â€” Theory &amp; Practical Course Records</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('201')" onkeydown="handleSubjectKey(event, '201')" aria-label="Open Learning and Teaching">
+      <span class="subject-code">201</span>
+      <span class="subject-name">Learning and Teaching</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('202')" onkeydown="handleSubjectKey(event, '202')" aria-label="Open Assessment and Evaluation for Learning">
+      <span class="subject-code">202</span>
+      <span class="subject-name">Assessment and Evaluation for Learning</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('203')" onkeydown="handleSubjectKey(event, '203')" aria-label="Open Indian Knowledge System in Education">
+      <span class="subject-code">203</span>
+      <span class="subject-name">Indian Knowledge System in Education</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('204')" onkeydown="handleSubjectKey(event, '204')" aria-label="Open Practice Lessons">
+      <span class="subject-code">204</span>
+      <span class="subject-name">Practice Lessons</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('205')" onkeydown="handleSubjectKey(event, '205')" aria-label="Open Introduction to Internship">
+      <span class="subject-code">205</span>
+      <span class="subject-name">Introduction to Internship</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('206A')" onkeydown="handleSubjectKey(event, '206A')" aria-label="Open Educational Event Management">
+      <span class="subject-code">206A</span>
+      <span class="subject-name">Educational Event Management</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('206B')" onkeydown="handleSubjectKey(event, '206B')" aria-label="Open Digital Initiatives for Education">
+      <span class="subject-code">206B</span>
+      <span class="subject-name">Digital Initiatives for Education</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('207')" onkeydown="handleSubjectKey(event, '207')" aria-label="Open Application of ICT and Digital Learning">
+      <span class="subject-code">207</span>
+      <span class="subject-name">Application of ICT and Digital Learning</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('208A')" onkeydown="handleSubjectKey(event, '208A')" aria-label="Open Community Engagement">
+      <span class="subject-code">208A</span>
+      <span class="subject-name">Community Engagement</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+    <div class="subject-item" role="button" tabindex="0" onclick="showSubjectPage('208B')" onkeydown="handleSubjectKey(event, '208B')" aria-label="Open Outreach Activities">
+      <span class="subject-code">208B</span>
+      <span class="subject-name">Outreach Activities</span>
+      <span class="subject-arrow">â€º</span>
+    </div>
+  </div>
+  <footer>Â© 2025 B.Ed Teaching Portfolio</footer>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â• ACADEMICS â•â•â•â•â•â•â•â•â•â• -->
+<!-- Subject Detail -->
+<div id="page-subject-detail" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="label" id="subjectDetailCode">Subject</span>
+      <h2 id="subjectDetailName">Subject Name</h2>
+      <p>Choose a record section for this subject.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="subject-back" type="button" onclick="showPage('subjects')">â€¹ Back to Subjects</button>
+    <div class="subject-sections" id="subjectSections">
+      <section class="subject-section-card">
+        <span class="label">Section 01</span>
+        <h3>MCQ</h3>
+      </section>
+      <section class="subject-section-card">
+        <span class="label">Section 02</span>
+        <h3>Preliminary Exam</h3>
+      </section>
+      <section class="subject-section-card">
+        <span class="label">Section 03</span>
+        <h3>Practical</h3>
+      </section>
+    </div>
+  </div>
+  <footer>Ã‚Â© 2025 B.Ed Teaching Portfolio</footer>
+</div>
+
+<div id="page-academics" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="label">Credentials</span>
+      <h2>Academic Records</h2>
+      <p>Educational Qualifications &amp; Certificates</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="cert-item">
+      <div>
+        <p class="cert-stage">Secondary Education</p>
+        <p class="cert-title">10th Standard</p>
+        <p class="cert-detail">CBSE Â· Year of Passing: 2011</p>
+      </div>
+      <a class="cert-link" href="https://precious-manatee-54030d.netlify.app/assets/10th.pdf" target="_blank">View</a>
+    </div>
+    <div class="cert-item">
+      <div>
+        <p class="cert-stage">Higher Secondary</p>
+        <p class="cert-title">12th Standard</p>
+        <p class="cert-detail">CBSE Â· Year of Passing: 2013</p>
+      </div>
+      <a class="cert-link" href="https://precious-manatee-54030d.netlify.app/assets/12th.pdf" target="_blank">View</a>
+    </div>
+    <div class="cert-item">
+      <div>
+        <p class="cert-stage">Undergraduate Degree</p>
+        <p class="cert-title">BCom</p>
+        <p class="cert-detail">University of Calicut Â· Year of Completion: 2016</p>
+      </div>
+      <a class="cert-link" href="https://precious-manatee-54030d.netlify.app/assets/bcom.jpeg" target="_blank">View</a>
+    </div>
+    <div class="cert-item">
+      <div>
+        <p class="cert-stage">Postgraduate Degree</p>
+        <p class="cert-title">MCom</p>
+        <p class="cert-detail">IGNOU Â· Year of Completion: 2023</p>
+      </div>
+      <a class="cert-link" href="https://precious-manatee-54030d.netlify.app/assets/mcom.pdf" target="_blank">View</a>
+    </div>
+    <div class="cert-item">
+      <div>
+        <p class="cert-stage">Professional Experience</p>
+        <p class="cert-title">Work Experience â€“ Cognizant</p>
+        <p class="cert-detail">Industry Experience Certificate</p>
+      </div>
+      <a class="cert-link" href="https://precious-manatee-54030d.netlify.app/assets/exp_cert.pdf" target="_blank">View</a>
+    </div>
+  </div>
+  <footer>Â© 2025 B.Ed Teaching Portfolio</footer>
+</div>
+
+
+<script>
+const subjects = {
+  '201': 'Learning and Teaching',
+  '202': 'Assessment and Evaluation for Learning',
+  '203': 'Indian Knowledge System in Education',
+  '204': 'Practice Lessons',
+  '205': 'Introduction to Internship',
+  '206A': 'Educational Event Management',
+  '206B': 'Digital Initiatives for Education',
+  '207': 'Application of ICT and Digital Learning',
+  '208A': 'Community Engagement',
+  '208B': 'Outreach Activities'
+};
+
+const practicalOnlySubjects = new Set(['204', '205', '206A', '206B', '207', '208A', '208B']);
+
+let subjectPdfs = {};
+
+// Fetch the PDF links dynamically from the JSON file
+fetch('data/subjects.json')
+  .then(response => response.json())
+  .then(data => {
+    if(data && data.subjects) {
+      data.subjects.forEach(subject => {
+        subjectPdfs[subject.code] = {
+          'Practical': subject.practical_pdf,
+          'MCQ': subject.mcq_pdf,
+          'Preliminary Exam': subject.preliminary_exam_pdf
+        };
+      });
+    }
+  })
+  .catch(err => console.error("Could not load PDFs:", err));
+
+function renderSubjectSections(code) {
+  const sections = practicalOnlySubjects.has(code)
+    ? ['Practical']
+    : ['MCQ', 'Preliminary Exam', 'Practical'];
+
+  document.getElementById('subjectSections').innerHTML = sections.map((section, index) => {
+    const pdfPath = subjectPdfs[code]?.[section];
+    const pdfLink = (pdfPath && pdfPath.trim() !== '')
+      ? `<a class="section-link" href="${pdfPath}" target="_blank" rel="noopener">Open PDF</a>`
+      : '';
+
+    return `
+      <section class="subject-section-card">
+        <div>
+          <span class="label">Section ${String(index + 1).padStart(2, '0')}</span>
+          <h3>${section}</h3>
+        </div>
+        ${pdfLink}
+      </section>
+    `;
+  }).join('');
+}
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const navLink = document.getElementById('nav-' + id);
+  if (navLink) navLink.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showSubjectPage(code) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('subjectDetailCode').textContent = 'Subject ' + code;
+  document.getElementById('subjectDetailName').textContent = subjects[code];
+  renderSubjectSections(code);
+  document.getElementById('page-subject-detail').classList.add('active');
+  document.getElementById('nav-subjects').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function handleSubjectKey(event, code) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    showSubjectPage(code);
+  }
+}
+</script>
+</body>
+</html>
+
