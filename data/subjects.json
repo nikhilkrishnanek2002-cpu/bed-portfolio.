@@ -2,7 +2,9 @@
   "subjects": [
     {
       "code": "201",
-      "practical_pdf": "pdfs/new-doc-05-22-2026-09.27-5-.pdf"
+      "practical_pdf": "pdfs/201-practical.pdf",
+      "mcq_pdf": "pdfs/201-mcq.pdf",
+      "preliminary_exam_pdf": "pdfs/201-exam.pdf"
     },
     {
       "code": "202"
