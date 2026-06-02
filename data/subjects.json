@@ -13,7 +13,10 @@
       "preliminary_exam_pdf": "pdfs/202-exam.pdf"
     },
     {
-      "code": "203"
+      "code": "203",
+      "practical_pdf": "pdfs/203-practical.pdf",
+      "mcq_pdf": "pdfs/203-mcq.pdf",
+      "preliminary_exam_pdf": "pdfs/203-exam.pdf"
     },
     {
       "code": "204"
